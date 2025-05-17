@@ -1,14 +1,19 @@
+/* ✅ These go at the very top */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap');
 @import "tailwindcss";
 
+/* Now the rest of your CSS */
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --font-header: 'Space Grotesk', sans-serif;
+  --font-body: 'Poppins', sans-serif;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-body);
   --font-mono: var(--font-geist-mono);
 }
 
@@ -22,5 +27,9 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body), sans-serif;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-header), sans-serif;
 }

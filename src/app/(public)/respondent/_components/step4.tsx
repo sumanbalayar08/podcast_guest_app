@@ -18,17 +18,15 @@ export default function Step4() {
   return (
     <form onSubmit={handleSubmit} className="space-y-8">
       <div>
-        <h2 className="text-2xl font-bold text-gray-900">
-          Anonymous Responses
-        </h2>
-        <p className="mt-1 text-gray-600">
+        <h2 className="text-2xl font-bold ">Anonymous Responses</h2>
+        <p className="mt-1 ">
           You can choose to answer deselected questions anonymously.
         </p>
       </div>
 
       {/* {selectedQuestions.length > 0 && (
           <div>
-            <h3 className="text-lg font-medium text-gray-900 mb-3">
+            <h3 className="text-lg font-medium  mb-3">
               Questions You'll Answer Publicly ({selectedQuestions.length})
             </h3>
             <ul className="space-y-2">
@@ -43,11 +41,11 @@ export default function Step4() {
 
       {deselectedQuestions.length > 0 ? (
         <div>
-          <h3 className="text-lg font-medium text-gray-900 mb-3">
+          <h3 className="text-lg font-medium mb-3">
             Below are the questions you&apos;ve opted not to answer. (
             {anonymousQuestions.length}/{deselectedQuestions.length})
           </h3>
-          <p className="text-sm text-gray-500 mb-3">
+          <p className="text-sm mb-3">
             Would you be willing to answer these questions completely
             anonymously?
           </p>
@@ -81,7 +79,7 @@ export default function Step4() {
                       <label
                         htmlFor={`anonymous-${i}`}
                         className={`block text-sm ${
-                          isAnonymous ? "text-blue-800" : "text-gray-700"
+                          isAnonymous ? "text-blue-800" : ""
                         }`}
                       >
                         <span className="font-medium">{q.category}:</span>{" "}
@@ -95,7 +93,7 @@ export default function Step4() {
           </ul>
         </div>
       ) : (
-        <div className="bg-gray-50 p-4 rounded-md text-gray-700 border border-gray-200">
+        <div className=" p-4 rounded-md  border border-gray-200">
           <p>
             You have chosen to answer all questions. There are no optional
             questions left to answer anonymously.
@@ -107,13 +105,13 @@ export default function Step4() {
         <button
           type="button"
           onClick={() => router.push("/respondent?step=step3")}
-          className="inline-flex justify-center rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+          className="inline-flex justify-center rounded-md border border-transparent cursor-pointer bg-blue-600 py-2 px-4 text-md font-semibold shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           Back
         </button>
         <button
           type="submit"
-          className="inline-flex justify-center rounded-md border border-transparent bg-blue-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+          className="inline-flex justify-center rounded-md border border-transparent cursor-pointer bg-blue-600 py-2 px-4 text-md font-semibold shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           Continue
         </button>

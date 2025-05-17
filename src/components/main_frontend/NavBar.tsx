@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { Podcast, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { podcastInfo } from "@/app/data/episodes";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);

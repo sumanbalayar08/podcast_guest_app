@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import EpisodeCard from "@/components/EpisodeCard";
+import EpisodeCard from "@/components/main_frontend/EpisodeCard";
 import { Search } from "lucide-react";
 import { featuredEpisodes, recentEpisodes } from "@/app/data/episodes";
 import { Button } from "@/components/ui/button";

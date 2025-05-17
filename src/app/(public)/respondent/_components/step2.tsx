@@ -52,13 +52,11 @@ export default function Step2() {
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
       <div>
-        <h2 className="text-2xl font-bold text-gray-900">
-          {respondentType} Questions
-        </h2>
-        <p className="mt-1 text-gray-600">
+        <h2 className="text-2xl font-bold ">{respondentType} Questions</h2>
+        <p className="mt-1 ">
           Please review and deselect any questions you don't want to answer.
         </p>
-        <p className="mt-1 text-sm text-gray-500">
+        <p className="mt-1 text-sm ">
           Selected: {selectedQuestions.length} /{" "}
           {selectedQuestions.length + deselectedQuestions.length}
         </p>
@@ -74,7 +72,7 @@ export default function Step2() {
 
           return (
             <details key={key} className="border rounded-lg p-4">
-              <summary className="cursor-pointer text-lg font-medium text-gray-900 mb-2">
+              <summary className="cursor-pointer text-lg font-medium  mb-2">
                 {label}
               </summary>
               <div className="mt-3 space-y-3">
@@ -102,9 +100,7 @@ export default function Step2() {
                       <div className={`ml-3 ${key !== "Intro" ? "" : "ml-8"}`}>
                         <label
                           htmlFor={inputId}
-                          className={`block text-sm ${
-                            isSelected ? "text-gray-900" : "text-gray-500"
-                          }`}
+                          className={`block text-sm ${isSelected ? "" : ""}`}
                         >
                           {q.question}
                         </label>
@@ -122,13 +118,13 @@ export default function Step2() {
         <button
           type="button"
           onClick={() => router.push("/respondent?step=step1")}
-          className="inline-flex justify-center rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+          className="inline-flex justify-center rounded-md border border-transparent cursor-pointer bg-blue-600 py-2 px-4 text-md font-semibold shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           Back
         </button>
         <button
           type="submit"
-          className="inline-flex justify-center rounded-md border border-transparent bg-blue-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+          className="inline-flex justify-center rounded-md border border-transparent cursor-pointer bg-blue-600 py-2 px-4 text-md font-semibold shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           Continue
         </button>

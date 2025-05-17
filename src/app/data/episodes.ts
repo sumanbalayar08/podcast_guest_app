@@ -74,9 +74,9 @@ export const podcastInfo = {
   tagline: "Where Technology Meets Humanity",
   description:
     "Exploring the intersection of technology, psychology, and human potential. Each week, we bring you insightful conversations with thought leaders who are shaping the future of how we live and work in the digital age.",
-  hostName: "Alex Morgan",
+  hostName: "Murtaza Manji",
   hostBio:
-    "Alex Morgan is a technologist, author, and educator passionate about responsible innovation and digital wellbeing. With over a decade of experience in Silicon Valley and academia, Alex brings a unique perspective on how we can harness technology while preserving our humanity.",
+    "Murtaza Manji is a technologist, author, and educator passionate about responsible innovation and digital wellbeing. With over a decade of experience in Silicon Valley and academia, Alex brings a unique perspective on how we can harness technology while preserving our humanity.",
   hostImage:
     "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
   socialLinks: {

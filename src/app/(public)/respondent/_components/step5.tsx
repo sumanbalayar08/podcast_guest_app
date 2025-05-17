@@ -91,10 +91,8 @@ export default function Step5() {
   return (
     <div className="space-y-6">
       <div>
-        <h2 className="text-2xl font-bold text-gray-900">
-          Schedule Your Interview
-        </h2>
-        <p className="mt-1 text-gray-600">
+        <h2 className="text-2xl font-bold ">Schedule Your Interview</h2>
+        <p className="mt-1 ">
           Please provide your contact information and select a time for your
           interview.
         </p>
@@ -102,10 +100,7 @@ export default function Step5() {
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label
-            htmlFor="email"
-            className="block text-sm font-medium text-gray-700"
-          >
+          <label htmlFor="email" className="block text-sm font-medium ">
             Work Email *
           </label>
           <input
@@ -113,16 +108,13 @@ export default function Step5() {
             type="email"
             value={email}
             onChange={(e) => setField("email", e.target.value)}
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2 shadow-sm text-black focus:border-blue-500 focus:ring-blue-500"
+            className="mt-1 block w-full rounded-md border border-gray-300 p-2 shadow-sm"
             required
           />
         </div>
 
         <div>
-          <label
-            htmlFor="mobile"
-            className="block text-sm font-medium text-gray-700"
-          >
+          <label htmlFor="mobile" className="block text-sm font-medium ">
             Mobile Number *
           </label>
           <input
@@ -130,16 +122,14 @@ export default function Step5() {
             type="tel"
             value={mobile}
             onChange={(e) => setField("mobile", e.target.value)}
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2 shadow-sm text-black focus:border-blue-500 focus:ring-blue-500"
+            className="mt-1 block w-full rounded-md border border-gray-300 p-2 shadow-sm "
             required
           />
         </div>
 
         {respondentType && (
           <div className="pt-4">
-            <h3 className="text-lg font-medium text-gray-900 mb-3">
-              Select a Time
-            </h3>
+            <h3 className="text-lg font-medium  mb-3">Select a Time</h3>
             <div className="calendly-inline-widget">
               <InlineWidget
                 url={process.env.NEXT_PUBLIC_CALENDLY_EVENT_URL!}
@@ -177,15 +167,15 @@ export default function Step5() {
           <button
             type="button"
             onClick={() => router.push("/respondent?step=step4")}
-            className="inline-flex justify-center rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50"
-          >
+            className="inline-flex justify-center rounded-md border border-transparent cursor-pointer bg-blue-600 py-2 px-4 text-md font-semibold shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
             Back
           </button>
           <button
             type="submit"
             disabled={!bookingTime}
-            className="inline-flex justify-center rounded-md border border-transparent bg-blue-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
-          >
+            className="inline-flex justify-center rounded-md border border-transparent cursor-pointer bg-blue-600 py-2 px-4 text-md font-semibold shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
             Complete Booking
           </button>
         </div>

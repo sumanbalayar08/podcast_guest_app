@@ -3,6 +3,16 @@ import FormWizardPage from "./_components/wrapper";
 import { Question } from "@/app/constants/info";
 import { Suspense } from "react";
 
+export const metadata = {
+  title: "WFTS Guest Questionnaire",
+  description: "A branded, seamless experience for podcast guests",
+  icons: {
+    icon: "/wfts.png",
+  },
+  themeColor: "#0f172a",
+};
+
+
 export default async function page() {
   const data = await getQuestionsData();
 

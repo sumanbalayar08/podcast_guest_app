@@ -1,6 +1,6 @@
 import { podcastInfo } from "@/app/data/episodes";
 import { Headphones, Play } from "lucide-react";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 
 const HeroSection = () => {
   return (
