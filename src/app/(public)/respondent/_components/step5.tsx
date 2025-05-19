@@ -100,7 +100,7 @@ export default function Step5() {
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label htmlFor="email" className="block text-sm font-medium ">
+          <label htmlFor="email" className="block text-md font-medium ">
             Work Email *
           </label>
           <input
@@ -114,7 +114,7 @@ export default function Step5() {
         </div>
 
         <div>
-          <label htmlFor="mobile" className="block text-sm font-medium ">
+          <label htmlFor="mobile" className="block text-md font-medium ">
             Mobile Number *
           </label>
           <input
@@ -167,14 +167,14 @@ export default function Step5() {
           <button
             type="button"
             onClick={() => router.push("/respondent?step=step4")}
-            className="inline-flex justify-center rounded-md border border-transparent cursor-pointer bg-blue-600 py-2 px-4 text-md font-semibold shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="inline-flex justify-center text-white rounded-md border border-transparent cursor-pointer bg-blue-600 py-2 px-4 text-lg font-semibold shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
             >
             Back
           </button>
           <button
             type="submit"
             disabled={!bookingTime}
-            className="inline-flex justify-center rounded-md border border-transparent cursor-pointer bg-blue-600 py-2 px-4 text-md font-semibold shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="inline-flex justify-center text-white rounded-md border border-transparent cursor-pointer bg-blue-600 py-2 px-4 text-lg font-semibold shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
             >
             Complete Booking
           </button>

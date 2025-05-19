@@ -12,11 +12,11 @@ export default function PodcastHeader() {
   }, []);
   if (!show) return null;
   return (
-    <div className="fixed top-0 inset-x-0 z-30 bg-brand/90 flex items-center justify-between px-4 py-2">
+    <div className="fixed top-0 inset-x-0 z-30 flex items-center justify-between px-4 py-2 bg-gray-200">
       <div className="flex items-center justify-center gap-2">
-        <Image src="/wfts.png" alt="logo" width={64} height={64} />
+        <Image src="/wfts.png" alt="logo" width={64} height={64}/>
       </div>
-      <span className="text-xs text-white">Guest Questionnaire</span>
+      <span className="text-md font-bold text-orange-500">Guest Questionnaire</span>
     </div>
   );
 }

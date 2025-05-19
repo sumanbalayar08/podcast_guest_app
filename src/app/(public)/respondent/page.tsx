@@ -12,7 +12,6 @@ export const metadata = {
   themeColor: "#0f172a",
 };
 
-
 export default async function page() {
   const data = await getQuestionsData();
 
@@ -38,7 +37,20 @@ export default async function page() {
   console.log(allQs);
 
   return (
-    <Suspense fallback={<div>Loading wizard...</div>}>
+    <Suspense
+      fallback={
+        <div className="flex h-[calc(100dvh-4rem)] items-center justify-center bg-slate-900">
+          <div className="w-full max-w-lg space-y-4 px-6">
+            {[...Array(6)].map((_, i) => (
+              <div
+                key={i}
+                className="h-6 w-full animate-pulse rounded-lg bg-slate-700/60"
+              />
+            ))}
+          </div>
+        </div>
+      }
+    >
       <FormWizardPage questions={allQs} />
     </Suspense>
   );

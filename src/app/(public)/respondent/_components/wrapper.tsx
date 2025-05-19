@@ -13,7 +13,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import HeroBanner from "@/components/respondent_frontend/HeroBanner";
 import PodcastFooter from "@/components/respondent_frontend/PodcastFooter";
 import PodcastHeader from "@/components/respondent_frontend/PodcastHeader";
-import Image from "next/image";
 
 export default function FormWizardPage({ questions }: { questions: any[] }) {
   const searchParams = useSearchParams();
@@ -54,19 +53,11 @@ export default function FormWizardPage({ questions }: { questions: any[] }) {
   }, [currentStepIndex, completedSteps, router]);
 
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-b from-cyan-900 via-indigo-900 to-gray-950 text-white">
+    <div className="min-h-screen flex flex-col bg-white text-gray-900">
       <PodcastHeader />
       <HeroBanner />
 
-      {/* <Image
-        src="/background.png"
-        alt="divider"
-        width={1200}
-        height={80}
-        className="mx-auto opacity-40"
-      /> */}
-
-      <div className="w-full py-6 px-4">
+      <div className="w-full py-4 px-4">
         <div className="max-w-5xl mx-auto">
           <div className="flex justify-between items-center mb-4 relative z-10">
             {guestSteps.map((step, index) => {
@@ -78,24 +69,24 @@ export default function FormWizardPage({ questions }: { questions: any[] }) {
                   key={step.slug}
                   className={`flex flex-col items-center flex-1 text-center transition-all duration-300 ${
                     isCompleted
-                      ? "text-indigo-200"
+                      ? "text-orange-500" 
                       : isCurrent
-                      ? "text-white"
-                      : "text-gray-400"
+                      ? "text-orange-700" 
+                      : "text-orange-300" 
                   }`}
                 >
                   <motion.div
-                    className={`w-12 h-12 rounded-full flex items-center justify-center mb-2 font-bold border-2 transition-all duration-300 ${
+                    className={`w-12 h-12 rounded-full flex items-center justify-center mb-2 font-semibold border-2 transition-all duration-300 ${
                       isCompleted
-                        ? "bg-gradient-to-br from-purple-500 to-indigo-500 text-white shadow-md shadow-indigo-500/30 border-transparent"
+                        ? "bg-orange-500 text-white border-orange-500"
                         : isCurrent
-                        ? "bg-gray-900 text-purple-200 border-purple-400"
-                        : "bg-gray-800 text-indigo-300 border-indigo-500/30"
+                        ? "bg-white text-orange-700 border-orange-700"
+                        : "bg-orange-100 text-orange-400 border-orange-200"
                     }`}
                     whileHover={{ scale: 1.05 }}
                   >
                     {isCompleted ? (
-                      <FaCheck size={14} />
+                      <FaCheck size={16} />
                     ) : (
                       <span>{index + 1}</span>
                     )}
@@ -106,10 +97,9 @@ export default function FormWizardPage({ questions }: { questions: any[] }) {
             })}
           </div>
 
-          {/* Progress Bar */}
-          <div className="w-full h-2 bg-indigo-900/50 rounded-full">
+          <div className="w-full h-2 bg-gray-200 rounded-full">
             <motion.div
-              className="h-2 rounded-full bg-gradient-to-r from-purple-500 to-indigo-400 shadow-lg"
+              className="h-2 rounded-full bg-gradient-to-r from-orange-400 to-orange-600"
               initial={{ width: 0 }}
               animate={{ width: `${progressPercentage}%` }}
               transition={{ duration: 0.5 }}
@@ -118,9 +108,8 @@ export default function FormWizardPage({ questions }: { questions: any[] }) {
         </div>
       </div>
 
-      {/* Step Content */}
-      <div className="flex-1 flex items-center justify-center px-4 py-10 sm:py-16">
-        <div className="w-full max-w-4xl p-6 sm:p-10 transition-all duration-300">
+      <div className="flex-1 flex items-center justify-center px-4 py-4">
+        <div className="w-full max-w-4xl transition-all duration-300">
           <AnimatePresence mode="wait">
             <motion.div
               key={currentStep}
