@@ -9,7 +9,7 @@ export default function PodcastFooter() {
         <div className="flex items-center gap-2">
           <Image src="/wfts.png" alt="logo" width={48} height={48} />
         </div>
-        <span>© {new Date().getFullYear()} WFTS Podcast. All rights reserved.</span>
+        <span>© Wisdom From the Sense. All rights reserved.</span>
         <div className="flex gap-4 text-primary-600 text-xl cursor-pointer">
           <FaTwitter className="hover:text-primary-700 transition" />
           <FaInstagram className="hover:text-primary-700 transition" />

@@ -47,7 +47,7 @@ export default function Confirmation() {
   if (!bookingTime || !calendlyEventUri) return null;
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-cyan-900 via-indigo-900 to-gray-950 text-white px-4">
+    <div className="min-h-screen flex items-center justify-center bg-white text-white px-4">
       <div className="max-w-xl text-center bg-white p-8 rounded-lg shadow-md">
         <h1 className="text-3xl font-bold text-green-700 mb-4">
           🎉 Thank You!

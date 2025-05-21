@@ -14,14 +14,12 @@ export type RespondentType =
   | "";
 
 interface FormState {
-  name: string;
   respondentType: RespondentType;
   selectedCategories: string[];
   selectedQuestions: Question[];
   deselectedQuestions: Question[];
   customQuestions: string[];
   anonymousQuestions: Question[];
-  email: string;
   mobile: string;
   bookingTime: string;
   completedSteps: GuestWizardStep[];
@@ -54,14 +52,12 @@ const initialState: Omit<
   | "updateCustomQuestion"
   | "resetQuestions"
 > = {
-  name: "",
   respondentType: "",
   selectedCategories: [],
   selectedQuestions: [],
   deselectedQuestions: [],
   customQuestions: Array(3).fill(""),
   anonymousQuestions: [],
-  email: "",
   mobile: "",
   bookingTime: "",
   completedSteps: [],

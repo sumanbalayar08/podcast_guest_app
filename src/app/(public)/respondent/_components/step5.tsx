@@ -2,7 +2,6 @@
 
 import { useRouter } from "next/navigation";
 import { useFormStore } from "@/app/lib/store";
-import { useEffect, useState } from "react";
 import { InlineWidget, useCalendlyEventListener } from "react-calendly";
 import { addRow } from "@/app/actions/google-sheets.action";
 import toast from "react-hot-toast";
@@ -11,8 +10,6 @@ import { formatQuestions } from "@/app/constants/info";
 export default function Step5() {
   const router = useRouter();
   const {
-    name,
-    email,
     mobile,
     respondentType,
     selectedQuestions,
@@ -67,13 +64,11 @@ export default function Step5() {
     }
 
     const values = [
-      name,
       respondentType,
       formatQuestions(selectedQuestions),
       formatQuestions(deselectedQuestions),
       formatQuestions(anonymousQuestions),
       customQuestions.filter(Boolean).join("\n"),
-      email,
       mobile,
       meetingUrl,
     ];
@@ -99,19 +94,6 @@ export default function Step5() {
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-4">
-        <div>
-          <label htmlFor="email" className="block text-md font-medium ">
-            Work Email *
-          </label>
-          <input
-            id="email"
-            type="email"
-            value={email}
-            onChange={(e) => setField("email", e.target.value)}
-            className="mt-1 block w-full rounded-md border border-gray-300 p-2 shadow-sm"
-            required
-          />
-        </div>
 
         <div>
           <label htmlFor="mobile" className="block text-md font-medium ">
