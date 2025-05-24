@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useFormStore } from "@/app/lib/store";
 import { QUESTION_CATEGORIES } from "@/app/constants/info";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function Step2() {
   const router = useRouter();
@@ -14,6 +14,8 @@ export default function Step2() {
     setStep,
     respondentType,
   } = useFormStore();
+
+  const [openCategory, setOpenCategory] = useState<string | null>(null);
 
   useEffect(() => {
     const { selectedQuestions, deselectedQuestions } = useFormStore.getState();
@@ -56,10 +58,7 @@ export default function Step2() {
         <p className="mt-1 ">
           Please review and deselect any questions you don't want to answer.
         </p>
-        <p className="mt-1 text-md ">
-          Selected: {selectedQuestions.length} /{" "}
-          {selectedQuestions.length + deselectedQuestions.length}
-        </p>
+        
       </div>
 
       <div className="space-y-8">
@@ -70,51 +69,50 @@ export default function Step2() {
 
           if (categoryQuestions.length === 0) return null;
 
+          const isOpen = openCategory === key;
+
           return (
-            <details
-              key={key}
-              className="border rounded-lg p-4 bg-white text-black"
-            >
-              <summary
+            <div key={key} className="border rounded-lg p-4 bg-white text-black">
+              <div
+                onClick={() => setOpenCategory(isOpen ? null : key)}
                 className="cursor-pointer text-lg font-bold mb-2 w-fit p-1 rounded-full"
               >
                 {label}
-              </summary>
-              <div className="mt-3 space-y-3 overflow-y-auto">
-                {categoryQuestions.map((q, i) => {
-                  const inputId = `question-${key}-${i}`;
-                  const isSelected = selectedQuestions.some(
-                    (sq) =>
-                      sq.question === q.question && sq.category === q.category
-                  );
-
-                  return (
-                    <div key={i} className="flex items-start">
-                      {key !== "Intro" && (
-                        <div className="flex items-center h-5">
-                          <input
-                            id={inputId}
-                            name={inputId}
-                            type="checkbox"
-                            checked={isSelected}
-                            onChange={() => toggleQuestion(q)}
-                            className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded"
-                          />
-                        </div>
-                      )}
-                      <div className={`ml-3 ${key !== "Intro" ? "" : "ml-8"}`}>
-                        <label
-                          htmlFor={inputId}
-                          className={`block text-md ${isSelected ? "" : ""}`}
-                        >
-                          {q.question}
-                        </label>
-                      </div>
-                    </div>
-                  );
-                })}
               </div>
-            </details>
+              {isOpen && (
+                <div className="mt-3 space-y-3 overflow-y-auto">
+                  {categoryQuestions.map((q, i) => {
+                    const inputId = `question-${key}-${i}`;
+                    const isSelected = selectedQuestions.some(
+                      (sq) =>
+                        sq.question === q.question && sq.category === q.category
+                    );
+
+                    return (
+                      <div key={i} className="flex items-start">
+                        {key !== "Intro" && (
+                          <div className="flex items-center h-5">
+                            <input
+                              id={inputId}
+                              name={inputId}
+                              type="checkbox"
+                              checked={isSelected}
+                              onChange={() => toggleQuestion(q)}
+                              className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded"
+                            />
+                          </div>
+                        )}
+                        <div className={`ml-3 ${key !== "Intro" ? "" : "ml-8"}`}>
+                          <label htmlFor={inputId} className="block text-md">
+                            {q.question}
+                          </label>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
           );
         })}
       </div>
